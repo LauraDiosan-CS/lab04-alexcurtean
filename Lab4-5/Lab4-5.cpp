@@ -5,13 +5,14 @@
 #include "testCheltuiala.h"
 #include "Cheltuiala.h"
 #include "testRepository.h"
-
+#include "testController.h"
 using namespace std;
 
 int main()
 {
     testConstructori();
     testRepo();
+    testCtrl();
 }
 
 
