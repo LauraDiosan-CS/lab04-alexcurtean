@@ -10,9 +10,9 @@ using namespace std;
 void testRepo()
 {
 	Repo repo;
-	Cheltuiala c1(81, 200, "gaz");
-	Cheltuiala c2(17, 150, "apa");
-	Cheltuiala c3(25, 20, "alimente");
+	Cheltuiala c1(1,81, 200, "gaz");
+	Cheltuiala c2(2,17, 150, "apa");
+	Cheltuiala c3(3,25, 20, "alimente");
 
 	repo.addElem(c1);
 	repo.addElem(c2);

@@ -6,6 +6,9 @@
 #include "Cheltuiala.h"
 #include "testRepository.h"
 #include "testController.h"
+#include "Repo.h"
+#include "Controller.h"
+#include "Ui.h"
 using namespace std;
 
 int main()
@@ -13,6 +16,11 @@ int main()
     testConstructori();
     testRepo();
     testCtrl();
+    Repo repo;
+    Controller ctrl(repo);
+    Ui ui(ctrl);
+    ui.run();
+
 }
 
 

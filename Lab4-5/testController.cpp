@@ -10,17 +10,18 @@ void testCtrl()
 	Repo r;
 	Controller ctrl(r);
 	
-	ctrl.addCheltuiala(17, 500, "gaz");
-	ctrl.addCheltuiala(18, 200, "curent");
+	ctrl.addCheltuiala(1,17, 500, "gaz");
+	ctrl.addCheltuiala(2,18, 200, "curent");
 	assert(r.getSize() == 2);
 	assert(r.getItemFromPos(0).getNrAp() == 17);
 
-	ctrl.deleteCheltuialaByAp(17);
+	ctrl.deleteCheltuiala(1);
 	assert(r.getItemFromPos(0).getNrAp() == 18);
 	assert(r.getSize() == 1);
 	
-	ctrl.addCheltuiala(81, 100, "mancare");
+	ctrl.addCheltuiala(3,81, 100, "mancare");
 	assert(r.getSize() == 2);
+	assert(r.getItemFromPos(1).getId() == 3);
 
 	ctrl.updateCheltuialaBySum(81, 50, "mancare");
 	assert(r.getItemFromPos(1).getSuma() == 50);

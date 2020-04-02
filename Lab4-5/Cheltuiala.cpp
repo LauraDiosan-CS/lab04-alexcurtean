@@ -8,7 +8,8 @@ using namespace std;
 //In:
 //Out: an empty object of type Cheltuiala
 Cheltuiala::Cheltuiala()
-{
+{	
+	this->id = 0;
 	this->tip = NULL;
 	this->nrap = 0;
 	this->suma = 0;
@@ -17,8 +18,9 @@ Cheltuiala::Cheltuiala()
 //Constructor with parameters
 //In: a number (integer), a sum (integer) and a type (string)
 //Out: an object of type Cheltuiala that contains the given info
-Cheltuiala::Cheltuiala(int nr, int s, const char* ti)
+Cheltuiala::Cheltuiala(int id,int nr, int s, const char* ti)
 {
+	this->id = id;
 	this->nrap = nr;
 	this->suma = s;
 	this->tip = new char[strlen(ti) + 1];
@@ -29,7 +31,8 @@ Cheltuiala::Cheltuiala(int nr, int s, const char* ti)
 //In: an object c of type Cheltuiala
 //Out: another object of type Cheltuiala that contains the same info as c
 Cheltuiala::Cheltuiala(const Cheltuiala& c)
-{
+{	
+	this->id = c.id;
 	this->nrap = c.nrap;
 	this->suma = c.suma;
 	this->tip = new char[strlen(c.tip) + 1];
@@ -45,6 +48,14 @@ Cheltuiala::~Cheltuiala()
 		delete[] this->tip;
 		this->tip = NULL;
 	}
+}
+
+//getter
+//In: an object of type Cheltuiala
+//Out: id of the Cheltuiala object
+int Cheltuiala::getId()
+{
+	return this->id;
 }
 
 //getter
@@ -69,6 +80,14 @@ int Cheltuiala::getSuma()
 char* Cheltuiala::getTip()
 {
 	return this->tip;
+}
+
+//setter
+//In: an object of type Cheltuiala and an id (integer)
+//Out: the same object with a new id
+void Cheltuiala::setId(int id)
+{
+	this->id = id;
 }
 
 //setter
@@ -105,7 +124,7 @@ void Cheltuiala::setTip(char* t)
 //Out: true or false
 bool Cheltuiala::operator==(const Cheltuiala& c)
 {
-	return ((this->nrap == c.nrap) && (this->suma == c.suma) && (strcmp(this->tip, c.tip) == 0));
+	return this->id == c.id;
 }
 
 //assignment operator
@@ -113,6 +132,7 @@ bool Cheltuiala::operator==(const Cheltuiala& c)
 //Out: the new state of the current object (this)
 Cheltuiala& Cheltuiala::operator=(const Cheltuiala& c)
 {
+	this->setId(c.id);
 	this->setNrAp(c.nrap);
 	this->setSuma(c.suma);
 	this->setTip(c.tip);
